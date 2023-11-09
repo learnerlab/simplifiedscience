@@ -13,7 +13,7 @@ jobs:
         pip install streamlit
         pip install pymupdf
     - name: Run Streamlit app
-      run: streamlit run your_app_script.py
+      run: streamlit run hello.py
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
