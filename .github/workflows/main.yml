@@ -1,18 +1,19 @@
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out the repo
+    - name: Checkout repository
       uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.8'  # Ensure you're using the Python version that your app requires
     - name: Install dependencies
       run: |
         pip install streamlit
-        pip install PyMuPDF
-    - name: Run Streamlit
-      run: streamlit run app.py
-      env: llenv
+        pip install pymupdf
+    - name: Run Streamlit app
+      run: streamlit run your_app_script.py
+      env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
