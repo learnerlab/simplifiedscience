@@ -14,5 +14,5 @@ jobs:
         pip install PyMuPDF
     - name: Run Streamlit
       run: streamlit run app.py
-      env:
+      env: llenv
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
