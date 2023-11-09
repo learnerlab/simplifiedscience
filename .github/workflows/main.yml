@@ -1,0 +1,18 @@
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: |
+        pip install streamlit
+        pip install PyMuPDF
+    - name: Run Streamlit
+      run: streamlit run app.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
